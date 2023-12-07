@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AuthorizationController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ViewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [ViewController::class, 'showHome']);
+
+Route::get('/signin', [ViewController::class, 'showSignIn']);
+Route::post('/signin', [AuthorizationController::class, 'SignIn']);
+Route::post('/signup', [AuthorizationController::class, 'SignUp']);
