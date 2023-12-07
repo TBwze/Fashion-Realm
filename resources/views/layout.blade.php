@@ -17,19 +17,13 @@
 
     <div class="navbar">
         <div class="logo">
-        This is Cogil
+            This is Cogil
         </div>
 
         <div class="navbar-list">
-            <a 
-            class="navbar-item"
-            href="#"
-            >Sign In</a>
-            <a 
-            class="navbar-item"
-            href="#"
-            >Sign Up</a>
-            </div>
+            <a class="navbar-item" href="#">Sign In</a>
+            <a class="navbar-item" href="#">Sign Up</a>
+        </div>
 
     </div>
 
@@ -39,10 +33,14 @@
         <div class="footer-container">
             <div class="footer-item">
                 <div class="footer-header">Fashion Realm</div>
-                <p>Created since 2023, our designs are inspired by the realm of fashion, where every style lives in harmony.
-                 Our pieces are made for everyone, from those who love to embrace the latest trends to those who always
-                  set them. At Fashion Realm, we believe that style is a reflection of the individual, and we strive to
-                   create unique and timeless pieces that showcase the beauty and creativity of each person who wears them.
+                <p>Created since 2023, our designs are inspired by the realm of fashion, where every style lives in
+                    harmony.
+                    Our pieces are made for everyone, from those who love to embrace the latest trends to those who
+                    always
+                    set them. At Fashion Realm, we believe that style is a reflection of the individual, and we strive
+                    to
+                    create unique and timeless pieces that showcase the beauty and creativity of each person who wears
+                    them.
                 </p>
             </div>
             <div class="footer-item">
@@ -60,7 +58,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
     </script>
-
 </body>
 
 </html>
