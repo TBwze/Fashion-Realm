@@ -1,7 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
 body {
     margin: 0;
+    font-family: Poppins;
 }
-.logo {
+/* .logo {
     color: white;
     margin: 5px 0px 5px 10px;
 }
@@ -25,12 +28,14 @@ body {
     color: white;
     margin: 1vh 3rem 1vh 0rem;
     font-size: 1.1rem;
+    font-family: "Poppins";
 }
 
 .footer-body {
     background-color: #272829;
     width: 100%;
     height: auto;
+    font-family: "Poppins";
 }
 
 .footer-container {
@@ -46,6 +51,14 @@ body {
     font-size: 1.1rem;
 }
 
+.footer-item-contact {
+    display: flex;
+}
+
+.footer-logo {
+    size: 1rem;
+}
+
 .footer-header {
     font-size: 1.5rem;
     font-weight: 600;
@@ -56,4 +69,4 @@ body {
     margin-bottom: 0.5rem;
     display: flex;
     justify-content: flex-end;
-}
+} */
