@@ -4,25 +4,25 @@
 
     @section('content')
 
-    <link rel="stylesheet" href="css/catalog.css">
+    <div class="text-center fst-italic">
+      <div class="fs-4">
+        <h2>Fashion Realm / Collections</h2>
+      </div>
+      <div class="fs-3">
+        <h1>MEN</h1>
+      </div>
+    </div>
 
-    <div class="head">
-      <h2>Fashion Realm / Collections</h2>
-    </div>
-    <div class = "gender">
-      <h1>MEN</h1>
-    </div>
     <div class="dropdown">
-        <div class="select">
-            <span class="selected">Release Date</span>
-            <div class="caret"></div>
-        </div>
-        <ul class="menu">
-            <li>Recently Added</li>
-            <li>Oldest Release</li>
-            <li class="active">Release Date</li>
-        </ul>
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Release Date
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">Sort by Oldest</a>
+        <a class="dropdown-item" href="#">Sort by Latest</a>
+        <a class="dropdown-item" href="#">Sort by Best Seller</a>
+      </div>
     </div>
 
-    <script src="js/catalog.js"></script>
+    
     @endsection
