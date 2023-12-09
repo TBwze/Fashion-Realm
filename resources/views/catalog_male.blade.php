@@ -4,13 +4,12 @@
 
     @section('content')
 
-    <div class="text-center fst-italic">
-      <div class="fs-4">
-        <h2>Fashion Realm / Collections</h2>
-      </div>
-      <div class="fs-3">
-        <h1>MEN</h1>
-      </div>
+    <div class="text-center fst-italic pt-4">
+      <h7>Fashion Realm / Collections</h7>
+    </div>
+
+    <div class="text-center fst-italic pb-4">
+      <h2>MEN</h2>
     </div>
 
     <!-- dropdown for sorting -->
@@ -19,11 +18,13 @@
       Release Date
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Sort by Oldest</a>
-        <a class="dropdown-item" href="#">Sort by Latest</a>
-        <a class="dropdown-item" href="#">Sort by Best Seller</a>
+        <a class="dropdown-item" href="/catalog-men">Sort by Oldest</a>
+        <a class="dropdown-item" href="/catalog-men">Sort by Latest</a>
+        <a class="dropdown-item" href="/catalog-men">Sort by Best Seller</a>
       </div>
     </div>
+
+    <br>
     
     <!-- cloth gridview (ON PROGRESS) -->
     <div class="card" style="width: 18rem;">

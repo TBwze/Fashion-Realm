@@ -17,6 +17,8 @@ use App\Http\Controllers\ViewController;
 
 Route::get('/', [ViewController::class, 'showHome']);
 
+Route::get('/catalog-men', [ViewController::class, 'showCatalogMen']);
+
 Route::get('/signin', [ViewController::class, 'showSignIn']);
 Route::post('/signin', [AuthorizationController::class, 'SignIn']);
 Route::post('/signup', [AuthorizationController::class, 'SignUp']);
