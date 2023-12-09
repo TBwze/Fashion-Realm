@@ -11,23 +11,34 @@
                     </div>
                 </div>
                 <div class="col-md-6 right">
-                    <div class="input-box">
-                        <header>Sign in</header>
-                        <div class="input-field">
-                            <input type="text" class="input" id="email" required="" autocomplete="off">
-                            <label for="email">Email</label>
+                    <form action="/signin" method="POST">
+                        <div class="input-box">
+                            <header>Sign In</header>
+                            <div class="input-field">
+                                <input type="email" class="input" id="email" required="" autocomplete="off">
+                                <label for="email">Email</label>
+                            </div>
+                            <div class="input-field">
+                                <input type="password" class="input" id="pass" required="">
+                                <label for="pass">Password</label>
+                            </div>
+                            @if (count($errors) > 0)
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <ul class="p-0 m-0" style="list-style: none">
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                            <div class="input-field">
+                                <input type="submit" class="submit" value="Sign In">
+                            </div>
+                            <div class="signin">
+                                <span>Don't have an account yet? <a href="/signup">Create here</a></span>
+                            </div>
                         </div>
-                        <div class="input-field">
-                            <input type="password" class="input" id="pass" required="">
-                            <label for="pass">Password</label>
-                        </div>
-                        <div class="input-field">
-                            <input type="submit" class="submit" value="Sign In">
-                        </div>
-                        <div class="signin">
-                            <span>Don't have an account yet? <a href="#">Create here</a></span>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>

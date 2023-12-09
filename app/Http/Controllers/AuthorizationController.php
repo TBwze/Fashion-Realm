@@ -16,10 +16,10 @@ class AuthorizationController extends Controller
             'name' => 'required',
             'email' => 'required | unique:users',
             'password' => 'required | alpha_num',
-            'confirmpassword' => 'required | alpha_num',
+            'confpass' => 'required | alpha_num',
         ]);
 
-        $confirm = $request->confirmpassword;
+        $confirm = $request->confpass;
         $password = $request->password;
         if ($confirm != $password) {
             return redirect()->back()->withErrors(new messageBag(['Confirm password does not match the password']));
