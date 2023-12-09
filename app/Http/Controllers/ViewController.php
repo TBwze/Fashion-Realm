@@ -12,6 +12,14 @@ class ViewController extends Controller
             'title' => 'Fashion Realm | Home'
         ]);
     }
+
+    public function showCatalogMen()
+    {
+        return view('catalog_male', [
+            'title' => 'Fashion Realm | Male Catalog'
+        ]);
+    }
+
     public function showSignIn()
     {
         return view('signin', [
