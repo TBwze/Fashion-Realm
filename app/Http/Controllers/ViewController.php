@@ -33,4 +33,10 @@ class ViewController extends Controller
             'title' => 'Fashion Realm | Sign Up',
         ]);
     }
+    public function showDetail()
+    {
+        return view('detail', [
+            'title' => 'Fashion Realm | Detauk',
+        ]);
+    }
 }

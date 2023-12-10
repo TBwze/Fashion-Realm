@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+body {
+    margin: 0;
+    font-family: Poppins;
+}
+
+.text_title {
+    text-shadow: 2px 2px 4px lightgray;
+}
+
+.btn {
+    border-radius: 10px;
+}
+
+.btn_size {
+    width: 5em;
+    background-color: #d9d9d9;
+}
+
+.btn_cart {
+    background-color: black;
+    color: white;
+}
+
+.text_apaini {
+    background-color: #d9d9d9;
+    margin-block: 1em;
+    margin-inline: auto;
+    padding-block: 1em;
+    border-radius: 10px;
+}
