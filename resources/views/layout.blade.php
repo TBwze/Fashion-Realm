@@ -13,10 +13,10 @@
     <title>@yield('title')</title>
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
 
     <nav
-        class="navbar navbar-expand-sm navbar-dark m-0"
+        class="navbar navbar-expand-sm navbar-dark m-0 "
         style="background-color: #272829;"
     >
         <a class="navbar-brand ms-4" href="#">Navbar</a>
@@ -38,10 +38,11 @@
     @yield('content')
 
     <div 
-    class="container-fluid justify-content-around d-flex text-white"
+    class="container-fluid text-white p-2 mt-auto"
     style="background-color : #272829;"
     >
-        <div class="container">
+    <div class="container-fluid justify-content-around d-flex p-0 m-0">
+    <div class="container">
             <h5 class="fw-semibold">Fashion Realm</h1>
             <p>Created since 2023, our designs are inspired by the realm of fashion, where every style lives in harmony.
                  Our pieces are made for everyone, from those who love to embrace the latest trends
@@ -61,10 +62,15 @@
         </div>
         <div class="container">
         <h5 class="fw-semibold">Social Profiles</h1>
-            <a class=""href="#"><i class="fa-brands fa-instagram w-30%"></i></a>
-            <a class=""href="#"><i class="fa-brands fa-instagram"></i></a>
-            <a class=""href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a class=""href="#"><i class="fa-brands fa-instagram fa-3x fa-fw" style="color:white"></i></a>
+            <a class=""href="#"><i class="fa-brands fa-facebook-f fa-3x fa-fw" style="color:white"></i></a>
+            <a class=""href="#"><i class="fa-brands fa-twitter fa-3x fa-fw" style="color:white"></i></a>
         </div>
+        
+    </div>
+    <div class="d-flex justify-content-end fw-semibold">
+            <span>Copyright © 2023 FashionRealm</span>
+     </div>
     </div>
 
     
