@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="css/signin_style.css">
     <div class="wrapper">
         <form action="/signup" method="POST">
+            {{ csrf_field() }}
             <div class="container main">
                 <div class="input-box">
                     <header>Sign Up</header>

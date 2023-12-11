@@ -12,6 +12,7 @@
                 </div>
                 <div class="col-md-6 right">
                     <form action="/signin" method="POST">
+                        {{ csrf_field() }}
                         <div class="input-box">
                             <header>Sign In</header>
                             <div class="input-field">
