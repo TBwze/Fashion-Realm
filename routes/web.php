@@ -23,4 +23,4 @@ Route::post('/signin', [AuthorizationController::class, 'SignIn']);
 Route::get('/signup', [ViewController::class, 'showSignUp']);
 Route::post('/signup', [AuthorizationController::class, 'SignUp']);
 
-Route::get('/catalog-men', [ViewController::class, 'showCatalogMen']);
+Route::get('/catalog/men', [ViewController::class, 'showCatalogMen']);
