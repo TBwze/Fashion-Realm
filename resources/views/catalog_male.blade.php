@@ -16,19 +16,19 @@
         {{-- <script>
       $('.dropdown-toggle').dropdown();
     </script> --}}
-        <div class="btn-group"
-        style="margin-left:7%">
-          <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-          Release Date
-          </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Sort by Alphabetical</a></li>
-              <li><a class="dropdown-item" href="#">Sort by Lowest Price</a></li>
-              <li><a class="dropdown-item" href="#">Sort by Highest Price</a></li>
-            </ul>
-          </div>
+        <div class="dropdown" style="margin-left : 7%;">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            Release Date
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="#">Sort by Alphabetical</a></li>
+            <li><a class="dropdown-item" href="#">Sort by Lowest Price</a></li>
+            <li><a class="dropdown-item" href="#">Sort by Highest Price</a></li>
+        </ul>
+        </div>
+
         <br>
-        <br>
+        
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
