@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('cart_item_id');
-            $table->int('total_amount');
+            $table->integer('total_amount');
             $table->timestamps();
         });
     }
