@@ -8,11 +8,11 @@
 <div class="container" style="padding-block: 5em;   ">
     <div class="row justify-content-md-center">
         <div class="col-4">
-            <img style="width: 35vh" src="\img\placeholderproduct.jpg" alt="">
+            <img style="width: 35vh" src="{{asset($product->image_front)}}">
         </div>
         <div class="col-md-auto">
-            <h2 class="text_title">Product Name</h2>
-            <p style="font-size: 1.15em">Rp 1.000.000,--</p>
+            <h2 class="text_title">{{$product->name}}</h2>
+            <p style="font-size: 1.15em">Rp {{$product->price}},00</p>
             <div class="row row-cols-auto" style="padding-bottom: 1em">
                 <div class="col col-12 col-md-1" style="margin-block: auto;">
                     Size:
@@ -51,12 +51,7 @@
 
             <div class="">
                 <h5>Description:</h5>
-                <ul>
-                    <li>Design: Streetwear</li>
-                    <li>Breathable materials: Made of polyester, cotton and spandex can be worn all year round</li>
-                    <li>Suitable for men and women</li>
-                    <li>Machine washable: 30 °C (86 °F)</li>
-                </ul>
+                <p>{{$product->description}}</p>
             </div>
         </div>
 

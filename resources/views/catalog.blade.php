@@ -8,24 +8,26 @@
         <h7>Fashion Realm / Collections</h7>
     </div>
 
-    <div class="text-center fst-italic pb-4">
-        <h2>GANTI DLU</h2>
+    <div class="text-center pb-4">
+        <h2 class="text-uppercase">{{$category}}</h2>
     </div>
 
-    <div class="dropdown" style="margin-left : 7%;">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-            aria-expanded="false">
-            Release Date
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item" href="#">#</a></li>
-            <li><a class="dropdown-item" href="#">#</a></li>
-            <li><a class="dropdown-item" href="#">#</a></li>
-        </ul>
-    </div>
-    <br>
+    
 
     <div class="container">
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Release Date
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#">#</a></li>
+                <li><a class="dropdown-item" href="#">#</a></li>
+                <li><a class="dropdown-item" href="#">#</a></li>
+            </ul>
+        </div>
+        <br>
+
         <div class="row">
             @foreach ($products as $product)
                     <div class="col-md-4">
@@ -34,7 +36,7 @@
                                 <img class="card-img-top"
                                     data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
                                     style="height: 225px; width: 100%; display: block;"
-                                    src="{{ $product->image_front }}" data-holder-rendered="true">
+                                    src="{{ asset($product->image_front) }}" data-holder-rendered="true">
                                 <div class="card-body">
                                     <p class="card-text">{{ $product->name }}</p>
                                     <div class="d-flex justify-content-between align-items-center">

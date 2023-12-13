@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\MessageBag;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class AuthorizationController extends Controller
 {
@@ -27,14 +28,23 @@ class AuthorizationController extends Controller
 
         $data = $request->all();
 
-        $user = User::create([
+        DB::table('users')->insert([
             'name' => $data['name'],
-            'email' => $data['password'],
+            'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'role' => 'member',
+            'created_at' => now(),
         ]);
 
-        Auth::login($user);
+        // $user = User::create([
+        //     'name' => $data['name'],
+        //     'email' => $data['password'],
+        //     'password' => bcrypt($data['password']),
+        //     'role' => 'member',
+        //     'created_at' => now(),
+        // ]);
+
+        // Auth::login($user);
 
         return redirect('/');
     }
@@ -54,13 +64,13 @@ class AuthorizationController extends Controller
         ]);
 
         // validate user input
-        if (Auth::attempt($credentials)) {
-            return redirect('/posthome');
-        } else {
-            return back()->withErrors([
-                'your username or password is incorrect'
-            ]);
-        }
+        // if (Auth::attempt($credentials)) {
+        //     return redirect('/posthome');
+        // } else {
+        //     return back()->withErrors([
+        //         'your username or password is incorrect'
+        //     ]);
+        // }
     }
 
     public function Logout(Request $request)

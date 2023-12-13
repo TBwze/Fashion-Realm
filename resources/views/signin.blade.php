@@ -11,17 +11,17 @@
                     </div>
                 </div>
                 <div class="col-md-6 right">
-                    <form action="/signin" method="POST">
+                    <form action="/signin" method="POST" enctype="multipart/form-data" >
                         {{ csrf_field() }}
                         <div class="input-box">
                             <header>Sign In</header>
                             <div class="input-field">
-                                <input type="email" class="input" id="email" required="" autocomplete="off">
+                                <input type="email" class="input" id="email" required="" autocomplete="off" name="email">
                                 <label for="email">Email</label>
                             </div>
                             <div class="input-field">
-                                <input type="password" class="input" id="pass" required="">
-                                <label for="pass">Password</label>
+                                <input type="password" class="input" id="password" required="" name="password">
+                                <label for="password">Password</label>
                             </div>
                             @if (count($errors) > 0)
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -33,7 +33,7 @@
                                 </div>
                             @endif
                             <div class="input-field">
-                                <input type="submit" class="submit" value="Sign In">
+                                <input type="submit" value="Sign In" class="submit"/>
                             </div>
                             <div class="signin">
                                 <span>Don't have an account yet? <a href="/signup">Create here</a></span>

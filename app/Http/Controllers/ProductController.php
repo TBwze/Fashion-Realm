@@ -14,7 +14,7 @@ class ProductController extends Controller
     public function index(string $category)
     {
         $products=Product::where('category',$category)->get();
-        return view('catalog')->with('products',$products);
+        return view('catalog', compact(['products','category']));
 
     }
 
@@ -37,9 +37,11 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Product $product)
     {
-        
+        $product=Product::find($product->id);
+        return view('detail')->with('product',$product);
+
     }
 
     /**

@@ -6,7 +6,7 @@
         <form action="/signup" method="POST">
             {{ csrf_field() }}
             <div class="container main">
-                <div class="input-box">
+                <div class="input-box p-5 border border-black">
                     <header>Sign Up</header>
                     <div class="input-field">
                         <input type="text" class="input" id="name" required="" autocomplete="off" name="name">
@@ -18,7 +18,7 @@
                         <label for="email">Email</label>
                     </div>
                     <div class="input-field">
-                        <input type="password" class="input" id="pass" required="" name="pass">
+                        <input type="password" class="input" id="pass" required="" name="password">
                         <label for="pass">Password</label>
                     </div>
                     <div class="input-field">
@@ -35,7 +35,7 @@
                         </div>
                     @endif
                     <div class="input-field">
-                        <button type="submit" class="btn btn-outline-primary">Submit</button>
+                        <input type="submit" value="Sign Up" class="btn btn-outline-primary"/>
                     </div>
                     <div class="signin">
                         <span>Already have an account <a href="/signin">Sign in here</a></span>

@@ -23,8 +23,10 @@ Route::get('/signin', [ViewController::class, 'showSignIn']);
 Route::post('/signin', [AuthorizationController::class, 'SignIn']);
 Route::get('/signup', [ViewController::class, 'showSignUp']);
 Route::post('/signup', [AuthorizationController::class, 'SignUp']);
+Route::post('/logout', [AuthorizationController::class, 'Logout']);
 Route::get('/catalog/{category}', [ProductController::class, 'index']);
 
+Route::resource('/product', ProductController::class);
 
 
 Route::middleware('auth')->group(function () {
