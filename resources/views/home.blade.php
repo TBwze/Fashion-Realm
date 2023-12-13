@@ -13,7 +13,7 @@
             <a class="btn bg-dark mt-3 fs-5 text-white fw-semibold py-2 rounded-pill" href=""
                 style="max-width:35%">Explore Clothing >></a>
         </div>
-        <img src="images/home/chainsaw-man.png" class="img-fluid w-100 object-fit-cover z-0 position-relative"
+        <img src="img/chainsaw-man.png" class="img-fluid w-100 object-fit-cover z-0 position-relative"
             alt="chainsaw-man" />
     </div>
 
@@ -27,7 +27,7 @@
                     <span class="fw-semibold">All Men</span>
                 </a>
             </div>
-            <img src="images/home/men.png" class="img-fluid object-fit-cover" />
+            <img src="img/men.png" class="img-fluid object-fit-cover" />
         </div>
 
         <div class ="container-fluid w-auto position-relative p-0">
@@ -38,7 +38,7 @@
                     <span class="fw-semibold">All Women</span>
                 </a>
             </div>
-            <img src="images/home/women.png" class="img-fluid object-fit-cover" />
+            <img src="img/women.png" class="img-fluid object-fit-cover" />
         </div>
 
     </div>

@@ -17,8 +17,14 @@
         <a class="navbar-brand ms-4" href="/">Fashion Realm</a>
 
         <div class ="container-fluid d-flex justify-content-end">
+            @auth
+            <a class="btn text-white me-4" href="#">Transaction</a>
+            <div class="text-white">Hello, {{Auth::user()->name}}</div>
+            <img class="object-fit-fill rounded-circle" src="" alt="profile-image"></img>
+            @else
             <a class="btn text-white me-4" href="/signin">Sign In</a>
             <a class="btn text-white me-4" href="/signup">Sign Up</a>
+            @endauth
         </div>
     </nav>
 
