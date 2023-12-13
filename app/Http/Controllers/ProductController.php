@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -10,9 +11,10 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(string $category)
     {
-        //
+        $products=Product::where('category',$category)->get();
+        return view('catalog')->with('products',$products);
 
     }
 
@@ -37,7 +39,7 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        //
+        
     }
 
     /**

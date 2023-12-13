@@ -40,7 +40,7 @@ class ViewController extends Controller
     public function showDetail()
     {
         return view('detail', [
-            'title' => 'Fashion Realm | Detauk',
+            'title' => 'Fashion Realm | Detail',
         ]);
     }
 }
