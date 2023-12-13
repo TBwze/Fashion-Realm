@@ -23,7 +23,7 @@
             <div class="w-100 h-100 bg-black opacity-25 z-1 position-absolute">
             </div>
             <div class="position-absolute top-50 start-50 translate-middle z-2 opacity-75" style="background-color:#D9D9D9">
-                <a href="/catalog/men" class="btn  px-5 py-3">
+                <a href="/catalog-male" class="btn  px-5 py-3">
                     <span class="fw-semibold">All Men</span>
                 </a>
             </div>
@@ -34,7 +34,7 @@
             <div class="w-100 h-100 bg-black opacity-25 z-1 position-absolute">
             </div>
             <div class="position-absolute top-50 start-50 translate-middle z-2 opacity-75" style="background-color:#D9D9D9">
-                <a href="#" class="btn px-5 py-3" style="opacity:1;">
+                <a href="/catalog-female" class="btn px-5 py-3" style="opacity:1;">
                     <span class="fw-semibold">All Women</span>
                 </a>
             </div>

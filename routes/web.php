@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthorizationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ViewController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,5 +23,8 @@ Route::get('/signin', [ViewController::class, 'showSignIn']);
 Route::post('/signin', [AuthorizationController::class, 'SignIn']);
 Route::get('/signup', [ViewController::class, 'showSignUp']);
 Route::post('/signup', [AuthorizationController::class, 'SignUp']);
+Route::get('/catalog-male', [ViewController::class, 'showSignUp']);
 
-Route::get('/catalog/men', [ViewController::class, 'showCatalogMen']);
+
+Route::middleware('auth')->group(function () {
+});

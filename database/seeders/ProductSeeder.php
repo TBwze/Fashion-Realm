@@ -19,7 +19,7 @@ class ProductSeeder extends Seeder
         DB::table('products')->insert([
             'name' => 'Oversized T-Shirt',
             'description' => $faker->paragraph(3, true),
-            'image_front' => '/img/product_oversized_t_shirt',
+            'image_front' => 'img/product_oversized_t_shirt.png',
             'image_back' => NULL,
             'price' => $faker->numberBetween(1000, 1000000),
             'category' => $faker->randomElement(['men', 'women']),
@@ -28,7 +28,7 @@ class ProductSeeder extends Seeder
         DB::table('products')->insert([
             'name' => 'Linen Wide Pants',
             'description' => $faker->paragraph(3, true),
-            'image_front' => '/img/product_linen_pants',
+            'image_front' => 'img/product_linen_pants.png',
             'image_back' => NULL,
             'price' => $faker->numberBetween(1000, 1000000),
             'category' => $faker->randomElement(['men', 'women']),
@@ -37,7 +37,7 @@ class ProductSeeder extends Seeder
         DB::table('products')->insert([
             'name' => 'Council Hoodie',
             'description' => $faker->paragraph(3, true),
-            'image_front' => '/img/product_council_hoodie',
+            'image_front' => 'img/product_council_hoodie.png',
             'image_back' => NULL,
             'price' => $faker->numberBetween(1000, 1000000),
             'category' => $faker->randomElement(['men', 'women']),

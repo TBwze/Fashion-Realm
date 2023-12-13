@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ViewController extends Controller
 {
@@ -10,13 +11,6 @@ class ViewController extends Controller
     {
         return view('home', [
             'title' => 'Fashion Realm | Home'
-        ]);
-    }
-
-    public function showCatalogMen()
-    {
-        return view('catalog_male', [
-            'title' => 'Fashion Realm | Male Catalog'
         ]);
     }
 
@@ -33,6 +27,16 @@ class ViewController extends Controller
             'title' => 'Fashion Realm | Sign Up',
         ]);
     }
+
+    public function showCatalog()
+    {
+        // if (Auth::check()) {
+        return redirect('/product');
+        // } else {
+        //     return redirect('/signin');
+        // }
+    }
+
     public function showDetail()
     {
         return view('detail', [
