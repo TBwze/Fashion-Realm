@@ -4,30 +4,39 @@
 
 @section('content')
 <script src="https://kit.fontawesome.com/3f477032fd.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="css/detail.css">
+<link rel="stylesheet" href="/css/detail.css">
 <div class="container" style="padding-block: 5em;   ">
     <div class="row justify-content-md-center">
         <div class="col-4">
             <img style="width: 35vh" src="{{asset($product->image_front)}}">
         </div>
-        <div class="col-md-auto">
+        <div class="col-sm-auto col-sm-8">
             <h2 class="text_title">{{$product->name}}</h2>
             <p style="font-size: 1.15em">Rp {{$product->price}},00</p>
             <div class="row row-cols-auto" style="padding-bottom: 1em">
-                <div class="col col-12 col-md-1" style="margin-block: auto;">
+                <div class="col col-md-auto" style="margin-block: auto;">
                     Size:
                 </div>
                 <div class="col">
-                    <button type="button" class="btn btn_size">S</button>
+                    {{-- <button type="button" class="btn btn_size">S</button> --}}
+                    <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off" checked>
+                    <label class="btn btn_size" for="option1">S</label>
+
                 </div>
                 <div class="col">
-                    <button type="button" class="btn btn_size">M</button>
+                    {{-- <button type="button" class="btn btn_size">M</button> --}}
+                    <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off">
+                    <label class="btn btn_size" for="option2">M</label>
                 </div>
                 <div class="col">
-                    <button type="button" class="btn btn_size">L</button>
+                    {{-- <button type="button" class="btn btn_size">L</button> --}}
+                    <input type="radio" class="btn-check" name="options" id="option3" autocomplete="off">
+                    <label class="btn btn_size" for="option3">L</label>
                 </div>
                 <div class="col">
-                    <button type="button" class="btn btn_size">XL</button>
+                    {{-- <button type="button" class="btn btn_size">XL</button> --}}
+                    <input type="radio" class="btn-check" name="options" id="option4" autocomplete="off">
+                    <label class="btn btn_size" for="option4">XL</label>
                 </div>
             </div>
 
@@ -51,7 +60,7 @@
 
             <div class="">
                 <h5>Description:</h5>
-                <p>{{$product->description}}</p>
+                {{$product->description}}
             </div>
         </div>
 
