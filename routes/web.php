@@ -25,6 +25,7 @@ Route::get('/signup', [ViewController::class, 'showSignUp']);
 Route::post('/signup', [AuthorizationController::class, 'SignUp']);
 Route::post('/logout', [AuthorizationController::class, 'Logout']);
 Route::get('/catalog/{category}', [ProductController::class, 'index']);
+Route::get('/manage-product', [ViewController::class,"showManageProduct"]);
 
 Route::resource('/product', ProductController::class);
 

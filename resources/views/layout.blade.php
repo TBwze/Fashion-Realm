@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="font-family:Poppins,sans-serif">
 
 <head>
     <meta charset="UTF-8">
@@ -11,7 +11,7 @@
     <title>@yield('title')</title>
 </head>
 
-<body class="d-flex flex-column min-vh-100">
+<body class="d-flex flex-column min-vh-100" >
 
     <nav class="navbar navbar-expand-sm navbar-dark m-0 " style="background-color: #272829;">
         <a class="navbar-brand ms-4" href="/">Fashion Realm</a>

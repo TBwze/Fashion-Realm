@@ -39,12 +39,13 @@
                     <label class="btn btn_size" for="option4">XL</label>
                 </div>
             </div>
-
+            @if(Auth::check() == true)
             <div class="d-grid">
                 <button type="button" name="" id="" class="btn btn_cart">
                     Add to Cart
                 </button>
             </div>
+            @endif
 
             <div class="row text_apaini text-nowrap justify-content-center text-center">
                 <div class="col-6">
