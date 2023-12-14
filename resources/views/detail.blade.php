@@ -13,8 +13,9 @@
             <div class="col-sm-auto col-sm-8">
                 <h2 class="text_title">{{ $product->name }}</h2>
                 <p style="font-size: 1.15em">Rp {{ $product->price }},00</p>
-                <form action="" method="POST">
+                <form action="{{ route('cart.store') }}" method="POST">
                     {{ csrf_field() }}
+                    <input type="hidden" name="product_id" value="{{ $product->id }}">
                     <div class="row row-cols-auto" style="padding-bottom: 1em">
                         <div class="col col-md-auto" style="margin-block: auto;">
                             Size:

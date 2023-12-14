@@ -22,8 +22,8 @@
                 <a href="#" class="btn text-white me-4">Manage Product</a>
             @endif
             @if (Auth::check() == true)
-                <a class="btn text-white me-4" href="#">Cart</a>
-                <a class="btn text-white me-4" href="#">Transaction</a>
+                <a class="btn text-white me-4" href="/cart">Cart</a>
+                <a class="btn text-white me-4" href="/transactions">Transaction</a>
                 <div class="text-white">Hello, {{ Auth::user()->name }}</div>
 
                 <form action="/logout" method="POST">

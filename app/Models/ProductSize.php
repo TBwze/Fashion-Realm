@@ -10,6 +10,13 @@ class ProductSize extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'quantity',
+        // other fillable fields
+    ];
+
+    protected $primaryKey = ['product_id', 'size'];
+
     /**
      * Get the user that owns the ProductSize
      *
