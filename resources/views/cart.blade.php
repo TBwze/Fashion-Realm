@@ -29,8 +29,8 @@
                             $total += $subtotal;
                         @endphp
                         <tr>
-                            <td>{{ $index + 1 }}</td> <!-- Display a count or index -->
-                            <td>{{ $item['name'] }}</td> <!-- Display product name -->
+                            <td>{{ $index + 1 }}</td>
+                            <td>{{ $item['name'] }}</td>
                             <td>{{ $item['size'] }}</td>
                             <td>
                                 <form action="{{ route('cart.update', $index) }}" method="POST">
@@ -60,6 +60,10 @@
                     </tr>
                 </tfoot>
             </table>
+            <form action="{{ route('cart.checkout') }}" method="GET">
+                @csrf
+                <button type="submit" class="btn btn-primary">Checkout</button>
+            </form>
         @else
             <p>Your cart is empty.</p>
         @endif

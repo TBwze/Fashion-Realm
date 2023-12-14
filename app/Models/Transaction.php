@@ -11,6 +11,13 @@ class Transaction extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'user_id',
+        'transaction_date',
+        'total_item',
+        // other fillable fields
+    ];
+
     /**
      * Get the user associated with the Transaction
      *

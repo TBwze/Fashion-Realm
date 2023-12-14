@@ -5,6 +5,7 @@ use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ViewController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\TransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,10 @@ Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::post('/cart', [CartController::class, 'store'])->name('cart.store');
 Route::patch('/cart/{index}', [CartController::class, 'update'])->name('cart.update');
 Route::delete('/cart/{index}', [CartController::class, 'destroy'])->name('cart.destroy');
+Route::get('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
+
+Route::post('/transactions', [TransactionController::class, 'store'])->name('transactions.store');
+Route::get('/transactions-view', [TransactionController::class, 'show']);
 
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthorizationController::class, 'Logout']);
