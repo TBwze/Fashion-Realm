@@ -29,22 +29,6 @@ class ViewController extends Controller
         ]);
     }
 
-    public function showCatalog()
-    {
-        // if (Auth::check()) {
-        return redirect('/product');
-        // } else {
-        //     return redirect('/signin');
-        // }
-    }
-
-    public function showDetail()
-    {
-        return view('detail', [
-            'title' => 'Fashion Realm | Detail',
-        ]);
-    }
-
     public function showManageProduct(){
         if(Auth::check() == true && Auth::user()->role == 'admin'){
             return view('manage-product',[

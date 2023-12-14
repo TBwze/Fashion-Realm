@@ -17,55 +17,55 @@ class ProductSizeSeeder extends Seeder
         //
         DB::table('product_sizes')->insert([
             'product_id' => 1,
-            'size_id' => 1,
+            'size' => 'small',
             'quantity' => $faker->numberBetween(1, 20),
         ]);
 
         DB::table('product_sizes')->insert([
             'product_id' => 1,
-            'size_id' => 2,
+            'size' => 'medium',
             'quantity' => $faker->numberBetween(1, 20),
         ]);
 
         DB::table('product_sizes')->insert([
             'product_id' => 1,
-            'size_id' => 3,
+            'size' => 'large',
             'quantity' => $faker->numberBetween(1, 20),
         ]);
 
         DB::table('product_sizes')->insert([
             'product_id' => 2,
-            'size_id' => 1,
+            'size' => 'small',
             'quantity' => $faker->numberBetween(1, 20),
         ]);
 
         DB::table('product_sizes')->insert([
             'product_id' => 2,
-            'size_id' => 2,
+            'size' => 'medium',
             'quantity' => $faker->numberBetween(1, 20),
         ]);
 
         DB::table('product_sizes')->insert([
             'product_id' => 2,
-            'size_id' => 3,
+            'size' => 'large',
             'quantity' => $faker->numberBetween(1, 20),
         ]);
 
         DB::table('product_sizes')->insert([
             'product_id' => 3,
-            'size_id' => 1,
+            'size' => 'small',
             'quantity' => $faker->numberBetween(1, 20),
         ]);
 
         DB::table('product_sizes')->insert([
             'product_id' => 3,
-            'size_id' => 2,
+            'size' => 'medium',
             'quantity' => $faker->numberBetween(1, 20),
         ]);
 
         DB::table('product_sizes')->insert([
             'product_id' => 3,
-            'size_id' => 3,
+            'size' => 'large',
             'quantity' => $faker->numberBetween(1, 20),
         ]);
     }

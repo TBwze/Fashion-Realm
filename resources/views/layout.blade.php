@@ -17,22 +17,22 @@
         <a class="navbar-brand ms-4" href="/">Fashion Realm</a>
 
         <div class ="container-fluid d-flex justify-content-end">
-            
+
             @if (Auth::check() == true && Auth::user()->role == 'admin')
-                    <a href="#" class="btn text-white me-4">Manage Product</a>
+                <a href="#" class="btn text-white me-4">Manage Product</a>
             @endif
             @if (Auth::check() == true)
-            
-            <a class="btn text-white me-4" href="#">Transaction</a>
-            <div class="text-white">Hello, {{Auth::user()->name}}</div>
-            
-            <form action="/logout" method="POST">
-            {{csrf_field()}}
-            <input type="submit" value="Logout" class="btn text-white me-4 ms-4"/>
-            </form>
+                <a class="btn text-white me-4" href="#">Cart</a>
+                <a class="btn text-white me-4" href="#">Transaction</a>
+                <div class="text-white">Hello, {{ Auth::user()->name }}</div>
+
+                <form action="/logout" method="POST">
+                    {{ csrf_field() }}
+                    <input type="submit" value="Logout" class="btn text-white me-4 ms-4" />
+                </form>
             @else
-            <a class="btn text-white me-4" href="/signin">Sign In</a>
-            <a class="btn text-white me-4" href="/signup">Sign Up</a>
+                <a class="btn text-white me-4" href="/signin">Sign In</a>
+                <a class="btn text-white me-4" href="/signup">Sign Up</a>
             @endif
         </div>
     </nav>
