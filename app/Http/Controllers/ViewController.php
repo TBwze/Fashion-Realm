@@ -28,19 +28,8 @@ class ViewController extends Controller
         ]);
     }
 
-    public function showCatalog()
-    {
-        // if (Auth::check()) {
-        return redirect('/product');
-        // } else {
-        //     return redirect('/signin');
-        // }
-    }
-
     public function showDetail()
     {
-        return view('detail', [
-            'title' => 'Fashion Realm | Detail',
-        ]);
+        return view('detail');
     }
 }

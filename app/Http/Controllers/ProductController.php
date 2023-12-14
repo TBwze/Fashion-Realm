@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\ProductSize;
 use Illuminate\Http\Request;
+use App\Models\Cart;
 
 class ProductController extends Controller
 {
@@ -13,9 +15,8 @@ class ProductController extends Controller
      */
     public function index(string $category)
     {
-        $products=Product::where('category',$category)->get();
-        return view('catalog', compact(['products','category']));
-
+        $products = Product::where('category', $category)->get();
+        return view('catalog', compact(['products', 'category']));
     }
 
     /**
@@ -39,9 +40,8 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        $product=Product::find($product->id);
-        return view('detail')->with('product',$product);
-
+        $product = Product::find($product->id);
+        return view('detail')->with('product', $product);
     }
 
     /**
