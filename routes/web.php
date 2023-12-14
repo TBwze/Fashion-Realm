@@ -26,6 +26,11 @@ Route::post('/signup', [AuthorizationController::class, 'SignUp']);
 
 Route::get('/catalog/{category}', [ProductController::class, 'index']);
 
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::post('/cart', [CartController::class, 'store'])->name('cart.store');
+Route::patch('/cart/{index}', [CartController::class, 'update'])->name('cart.update');
+Route::delete('/cart/{index}', [CartController::class, 'destroy'])->name('cart.destroy');
+
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthorizationController::class, 'Logout']);
 });
