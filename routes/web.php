@@ -26,8 +26,6 @@ Route::post('/signup', [AuthorizationController::class, 'SignUp']);
 
 Route::get('/catalog/{category}', [ProductController::class, 'index']);
 
-Route::get('/detail', [ViewController::class, 'showDetail']);
-
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthorizationController::class, 'Logout']);
 });

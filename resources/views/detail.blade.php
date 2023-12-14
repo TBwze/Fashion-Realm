@@ -13,7 +13,7 @@
             <div class="col-sm-auto col-sm-8">
                 <h2 class="text_title">{{ $product->name }}</h2>
                 <p style="font-size: 1.15em">Rp {{ $product->price }},00</p>
-                <form action="{{ route('cart.add', ['productId' => $product->id, 'size' => $sizes]) }}" method="POST">
+                <form action="" method="POST">
                     {{ csrf_field() }}
                     <div class="row row-cols-auto" style="padding-bottom: 1em">
                         <div class="col col-md-auto" style="margin-block: auto;">
