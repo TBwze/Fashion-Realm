@@ -63,7 +63,7 @@
                                 </tr>
                             </tfoot>
                         </table>
-                        <form action="{{ route('cart.checkout') }}" method="GET">
+                        <form action="{{ route('cart.checkout') }}" method="GET" class="d-grid justify-content-md-end">
                             @csrf
                             <button type="submit" class="btn btn-primary btn-md me-md-4 btn-dark"
                                 style="--bs-btn-padding-y: .50rem; --bs-btn-padding-x: 1.50rem; --bs-btn-font-size: 1rem;">Checkout</button>
