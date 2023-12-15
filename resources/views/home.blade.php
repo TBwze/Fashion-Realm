@@ -17,27 +17,27 @@
 
     <div class="container-fluid mt-5 mb-5 d-flex justify-content-evenly">
 
-        <div class="container-fluid w-auto position-relative p-0">
+        <a href="{{url('/catalog/'. 'men')}}" class="container-fluid w-auto position-relative p-0">
             <div class="w-100 h-100 bg-black opacity-25 z-1 position-absolute">
             </div>
             <div class="position-absolute top-50 start-50 translate-middle z-2 opacity-75" style="background-color:#D9D9D9">
-                <a href="{{url('/catalog/'. 'men')}}" class="btn  px-5 py-3">
+                <div  class="btn  px-5 py-3">
                     <span class="fw-semibold">All Men</span>
-                </a>
+                </div>
             </div>
             <img src="img/men.png" class="img-fluid object-fit-cover" />
-        </div>
+        </a>
 
-        <div class ="container-fluid w-auto position-relative p-0">
+        <a href="{{url('/catalog/'. 'women')}}" class ="container-fluid w-auto position-relative p-0">
             <div class="w-100 h-100 bg-black opacity-25 z-1 position-absolute">
             </div>
             <div class="position-absolute top-50 start-50 translate-middle z-2 opacity-75" style="background-color:#D9D9D9">
-                <a href="{{url('/catalog/'. 'women')}}" class="btn px-5 py-3" style="opacity:1;">
+                <div class="btn px-5 py-3" style="opacity:1;">
                     <span class="fw-semibold">All Women</span>
-                </a>
+                </div>
             </div>
             <img src="img/women.png" class="img-fluid object-fit-cover" />
-        </div>
+        </a>
 
     </div>
 

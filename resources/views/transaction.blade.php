@@ -7,6 +7,9 @@
         <h1>Transaction Details</h1>
 
         <!-- Transaction Information -->
+        @if($transaction == null)
+        <h1>You Dont Have Any Transactions</h1>
+        @else
         <div class="card mt-4">
             <div class="card-header">
                 Transaction Info
@@ -18,6 +21,7 @@
                 <p><strong>Total Amount:</strong> Rp {{ $transaction->total_amount }},00</p>
             </div>
         </div>
+        @endif
 
         <!-- Transaction Details -->
         <div class="card mt-4">

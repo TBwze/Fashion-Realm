@@ -40,7 +40,7 @@
                     @endforeach
                 </ul>
             @endif
-            <input type="submit" value="Update Course">
+            <input type="submit" value="Update Product">
         </form>
 
     <div class="container-fluid d-flex flex-column mb-5 mt-5">

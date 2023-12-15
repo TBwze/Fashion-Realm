@@ -10,6 +10,8 @@ use App\Models\Product;
 use App\Models\ProductSize;
 use App\Models\Transaction;
 use App\Models\TransactionDetail;
+use Illuminate\Support\Facades\DB;
+use Ramsey\Uuid\Type\Integer;
 
 class CartController extends Controller
 {
@@ -121,19 +123,21 @@ class CartController extends Controller
         if ($cartItems->isNotEmpty()) {
             foreach ($cartItems as $item) {
                 # code...
-                $productSize = ProductSize::where('product_id', $item->product_id)
-                    ->where('size', $item->size)
-                    ->first();
+                $productSize = DB::table('product_sizes')->where('product_id','=', $item->product_id)->where('size','=', $item->size)->first();
 
-                if (!$productSize || $productSize->quantity < $item->quantity) {
+                if (!$productSize || (int)$productSize->quantity < $item->quantity) {
                     return redirect()->route('cart.index')->with('error', 'Invalid or insufficient quantity for some items in your cart.');
                 }
 
                 $subtotal = $item->quantity * $item->product->price;
                 $totalAmount += $subtotal;
 
-                $newQuantity = $productSize->quantity - $item->quantity;
-                $productSize->update(['quantity' => $newQuantity]);
+                $newQuantity = (int)$productSize->quantity - $item->quantity;
+                
+                DB::table('product_sizes')
+                ->where('product_id','=', $item->product_id)
+                ->where('size','=', $item->size)
+                ->update(['quantity'=>$newQuantity]);
 
                 $transaction = Transaction::create([
                     'user_id' => Auth::id(),
