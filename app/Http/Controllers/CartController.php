@@ -123,7 +123,7 @@ class CartController extends Controller
         if ($cartItems->isNotEmpty()) {
             foreach ($cartItems as $item) {
                 # code...
-                $productSize = DB::table('product_sizes')->where('product_id','=', $item->product_id)->where('size','=', $item->size)->first();
+                $productSize = DB::table('product_sizes')->where('product_id', '=', $item->product_id)->where('size', '=', $item->size)->first();
 
                 if (!$productSize || (int)$productSize->quantity < $item->quantity) {
                     return redirect()->route('cart.index')->with('error', 'Invalid or insufficient quantity for some items in your cart.');
@@ -133,11 +133,11 @@ class CartController extends Controller
                 $totalAmount += $subtotal;
 
                 $newQuantity = (int)$productSize->quantity - $item->quantity;
-                
+
                 DB::table('product_sizes')
-                ->where('product_id','=', $item->product_id)
-                ->where('size','=', $item->size)
-                ->update(['quantity'=>$newQuantity]);
+                    ->where('product_id', '=', $item->product_id)
+                    ->where('size', '=', $item->size)
+                    ->update(['quantity' => $newQuantity]);
 
                 $transaction = Transaction::create([
                     'user_id' => Auth::id(),

@@ -4,23 +4,20 @@
     font-family: 'Poppins', sans-serif;
 }
 
-.wrapper {
-    background: #ececec;
-}
 
 .main {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: top;
+    align-items: top;
     min-height: 100vh;
     padding: 10vh;
 }
 
 .row {
-    width: 1150px;
-    height: 20vh;
-    border-radius: 10px;
+    width: 100vh;
+    height: auto;
+    border-radius: 1vh;
     background: #727A90;
-    padding: 20px;
+    padding: 5vh;
     box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.2);
 }

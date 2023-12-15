@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <link rel="stylesheet" href="css/signin_style.css">
+    <link rel="stylesheet" href="css/signin.css">
     <div class="wrapper">
         <form action="/signup" method="POST">
             {{ csrf_field() }}
@@ -35,7 +35,7 @@
                         </div>
                     @endif
                     <div class="input-field">
-                        <input type="submit" value="Sign Up" class="btn btn-outline-primary"/>
+                        <input type="submit" value="Sign Up" class="btn btn-outline-primary" />
                     </div>
                     <div class="signin">
                         <span>Already have an account <a href="/signin">Sign in here</a></span>

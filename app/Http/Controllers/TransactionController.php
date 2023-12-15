@@ -4,22 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Transaction;
+use App\Models\TransactionDetail;
 
 class TransactionController extends Controller
 {
     //
-
-    public function store($transactionId)
+    public function showTransactions($userId)
     {
-        $transaction = Transaction::findOrFail($transactionId);
-        // Fetch transaction details or use relationships to retrieve transaction details
-        return view('transactions.show', compact('transaction'));
-    }
-
-    public function show()
-    {
-        $transaction = Transaction::all();
-        // Fetch transaction details or use relationships to retrieve transaction details
-        return view('transaction', compact('transaction'));
+        $transactions = Transaction::where('user_id', $userId)->with('details')->get();
+        return view('transactions', compact('transactions'));
     }
 }

@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <link rel="stylesheet" href="css/signin_style.css">
+    <link rel="stylesheet" href="css/signin.css">
     <div class="wrapper">
         <div class="container main">
             <div class="row">
@@ -11,12 +11,13 @@
                     </div>
                 </div>
                 <div class="col-md-6 right">
-                    <form action="/signin" method="POST" enctype="multipart/form-data" >
+                    <form action="/signin" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="input-box">
                             <header>Sign In</header>
                             <div class="input-field">
-                                <input type="email" class="input" id="email" required="" autocomplete="off" name="email">
+                                <input type="email" class="input" id="email" required="" autocomplete="off"
+                                    name="email">
                                 <label for="email">Email</label>
                             </div>
                             <div class="input-field">
@@ -33,7 +34,7 @@
                                 </div>
                             @endif
                             <div class="input-field">
-                                <input type="submit" value="Sign In" class="submit"/>
+                                <input type="submit" value="Sign In" class="submit" />
                             </div>
                             <div class="signin">
                                 <span>Don't have an account yet? <a href="/signup">Create here</a></span>

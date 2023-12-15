@@ -28,17 +28,17 @@ Route::post('/signup', [AuthorizationController::class, 'SignUp']);
 Route::get('/catalog/{category}', [ProductController::class, 'index']);
 Route::get('/manage-product', [ViewController::class, "showManageProduct"]);
 
-Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
-Route::post('/cart', [CartController::class, 'store'])->name('cart.store');
-Route::patch('/cart/{id}', [CartController::class, 'update'])->name('cart.update');
-Route::delete('/cart/{id}', [CartController::class, 'destroy'])->name('cart.destroy');
-Route::get('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
-
-Route::post('/transactions', [TransactionController::class, 'store'])->name('transactions.store');
-Route::get('/transactions-view', [TransactionController::class, 'show']);
-
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthorizationController::class, 'Logout']);
+
+    Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+    Route::post('/cart', [CartController::class, 'store'])->name('cart.store');
+    Route::patch('/cart/{id}', [CartController::class, 'update'])->name('cart.update');
+    Route::delete('/cart/{id}', [CartController::class, 'destroy'])->name('cart.destroy');
+    Route::get('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
+
+    Route::get('/user/{userId}/transactions', [TransactionController::class, 'showTransactions'])
+        ->name('user.transactions');
 });
 
 Route::resource('/product', ProductController::class);

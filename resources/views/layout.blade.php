@@ -11,7 +11,7 @@
     <title>@yield('title')</title>
 </head>
 
-<body class="d-flex flex-column min-vh-100" >
+<body class="d-flex flex-column min-vh-100">
 
     <nav class="navbar navbar-expand-sm navbar-dark m-0 " style="background-color: #272829;">
         <a class="navbar-brand ms-4" href="/">Fashion Realm</a>
@@ -19,11 +19,12 @@
         <div class ="container-fluid d-flex justify-content-end">
 
             @if (Auth::check() == true && Auth::user()->role == 'admin')
-                <a href="#" class="btn text-white me-4">Manage Product</a>
+                <a href="/manage-product" class="btn text-white me-4">Manage Product</a>
             @endif
             @if (Auth::check() == true)
                 <a class="btn text-white me-4" href="/cart">Cart</a>
-                <a class="btn text-white me-4" href="/transactions">Transaction</a>
+                <a class="btn text-white me-4"
+                    href="{{ route('user.transactions', ['userId' => Auth::id()]) }}">Transaction</a>
                 <div class="text-white">Hello, {{ Auth::user()->name }}</div>
 
                 <form action="/logout" method="POST">

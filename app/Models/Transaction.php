@@ -33,8 +33,12 @@ class Transaction extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function transactiondetail(): HasMany
+    // public function transactiondetail(): HasMany
+    // {
+    //     return $this->hasMany(TransactionDetail::class, 'id', 'transaction_id');
+    // }
+    public function details()
     {
-        return $this->hasMany(TransactionDetail::class, 'id', 'transaction_id');
+        return $this->hasMany(TransactionDetail::class, 'transaction_id', 'id');
     }
 }
