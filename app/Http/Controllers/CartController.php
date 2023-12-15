@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -15,72 +16,98 @@ class CartController extends Controller
     //
     public function store(Request $request)
     {
-        $product_id = $request->input('product_id');
-        $size = $request->input('sizes');
+        // $product_id = $request->input('product_id');
 
-        $product = Product::find($product_id);
+        $product = Product::find($request->input('product_id'));
 
         if ($product) {
-            $productSize = ProductSize::where('product_id', $product_id)
-                ->where('size', $size)
-                ->first();
+            $size = $request->input('sizes');
+            // $productSize = ProductSize::where('product_id', $product->id)
+            //     ->where('size', $size)
+            //     ->first();
 
-            if ($productSize && $productSize->quantity > 0) {
+            // if ($productSize && $productSize->quantity > 0) {
+            // $cart = session()->get('cart');
+            // $cart[] = [
+            //     'product_id' => $product_id,
+            //     'size' => $size,
+            //     'quantity' => 1,
+            //     'price' => $product->price,
+            // ];
+            // session()->put('cart', $cart);
+            $cartItem = new Cart();
+            $cartItem->product_id = $product->id;
+            $cartItem->size = $size;
+            $cartItem->quantity = 1;
+            $cartItem->price = $product->price;
+            $cartItem->save();
 
-                $cart = session()->get('cart');
-                $cart[] = [
-                    'product_id' => $product_id,
-                    'size' => $size,
-                    'quantity' => 1,
-                    'price' => $product->price,
-                ];
-                session()->put('cart', $cart);
-
-                return Redirect::route('cart.index')->with('success', 'Product added to cart successfully.');
-            }
+            return Redirect::route('cart.index')->with('success', 'Product added to cart successfully.');
+            // }
         }
-
-        return redirect()->back()->with('error', 'Product or size not available.');
+        // return redirect()->back()->with('error', 'Product or size not available.');
     }
 
     public function index()
     {
-        $cart = session('cart');
-        $products = [];
+        // $cart = session('cart');
+        // $products = [];
+        $cartItems = Cart::with('product')->get();
 
-        if ($cart && count($cart) > 0) {
-            foreach ($cart as $index => $item) {
-                $product = Product::find($item['product_id']);
-                if ($product) {
-                    $item['name'] = $product->name;
-                    $products[] = $item;
-                }
-            }
-        }
+        // if ($cart && count($cart) > 0) {
+        //     foreach ($cart as $index => $item) {
+        //         $product = Product::find($item['product_id']);
+        //         if ($product) {
+        //             $item['name'] = $product->name;
+        //             $products[] = $item;
+        //         }
+        //     }
+        // }
 
-        return view('cart', compact('products'));
+        // $products = $cartItems->map(function ($item) {
+        //     return [
+        //         'product_id' => $item->product->id,
+        //         'name' => $item->product->name,
+        //         'size' => $item->size,
+        //         'quantity' => $item->quantity,
+        //     ];
+        // });
+
+        return view('cart', compact('cartItems'));
     }
 
-    public function update(Request $request, $index)
+    public function update(Request $request, $id)
     {
-        $cart = session()->get('cart');
+        // $cart = session()->get('cart');
+        $cartItem = Cart::find($id);
 
-        if (isset($cart[$index])) {
-            $cart[$index]['quantity'] = $request->input('quantity');
-            session()->put('cart', $cart);
+        if ($cartItem) {
+            $cartItem->quantity = $request->input('quantity');
+            $cartItem->save();
         }
+
+        // if (isset($cart[$index])) {
+        //     $cart[$index]['quantity'] = $request->input('quantity');
+        //     session()->put('cart', $cart);
+        // }
 
         return redirect()->route('cart.index')->with('success', 'Cart updated successfully.');
     }
 
-    public function destroy($index = null)
+    public function destroy($id = null)
     {
-        if ($index !== null) {
-            $cart = session()->get('cart');
-            unset($cart[$index]);
-            session()->put('cart', $cart);
+        if ($id !== null) {
+            // $cart = session()->get('cart');
+            // unset($cart[$index]);
+            // session()->put('cart', $cart);
+            $cartItem = Cart::find($id);
+
+            if ($cartItem) {
+                $cartItem->delete();
+            }
         } else {
-            session()->forget('cart');
+            // session()->forget('cart');
+            Cart::truncate();
         }
 
         return redirect()->route('cart.index')->with('success', 'Item(s) removed from cart.');
@@ -88,60 +115,44 @@ class CartController extends Controller
 
     public function checkout()
     {
-        $cart = session('cart');
+        $cartItems = Cart::all();
         $totalAmount = 0;
 
-        if (is_array($cart) && count($cart) > 0) {
-            foreach ($cart as $item) {
-                if (!is_array($item) || !isset($item['product_id'], $item['size'], $item['quantity'], $item['price'])) {
-                    // Handle malformed cart item - it should have necessary keys
-                    return redirect()->route('cart.index')->with('error', 'Malformed item in the cart.');
-                }
-
-                $subtotal = $item['quantity'] * $item['price'];
-                $totalAmount += $subtotal;
-
-                // Retrieve the product size
-                $productSize = ProductSize::where('product_id', $item['product_id'])
-                    ->where('size', $item['size'])
+        if ($cartItems->isNotEmpty()) {
+            foreach ($cartItems as $item) {
+                # code...
+                $productSize = ProductSize::where('product_id', $item->product_id)
+                    ->where('size', $item->size)
                     ->first();
 
-
-                $itemQuantity = is_array($item['quantity']) ? (int)$item['quantity']['quantity'] : (int)$item['quantity'];
-
-                if ($productSize && is_numeric($productSize->quantity) && isset($item['quantity']) && is_numeric($item['quantity'])) {
-                    $itemQuantity = (int)$item['quantity'];
-
-                    if ($itemQuantity >= 0 && $productSize->quantity >= (int)$itemQuantity) {
-                        $newQuantity = $productSize->quantity - $itemQuantity;
-                        $productSize->update(['quantity' => $newQuantity]);
-
-                        $transaction = Transaction::create([
-                            'user_id' => Auth::id(),
-                            'transaction_date' => now(),
-                            'total_item' => $totalAmount,
-                        ]);
-
-                        TransactionDetail::create([
-                            'transaction_id' => $transaction->id,
-                            'product_size_id' => $item['product_id'],
-                            'quantity' => $itemQuantity,
-                            'size' => $item['size'],
-                        ]);
-                    } else {
-                        return redirect()->route('cart.index')->with('error', 'Invalid or insufficient quantity for some items in your cart.');
-                    }
-                } else {
-                    return redirect()->route('cart.index')->with('error', 'Invalid quantity information for some items in your cart.');
+                if (!$productSize || $productSize->quantity < $item->quantity) {
+                    return redirect()->route('cart.index')->with('error', 'Invalid or insufficient quantity for some items in your cart.');
                 }
+
+                $subtotal = $item->quantity * $item->product->price;
+                $totalAmount += $subtotal;
+
+                $newQuantity = $productSize->quantity - $item->quantity;
+                $productSize->update(['quantity' => $newQuantity]);
+
+                $transaction = Transaction::create([
+                    'user_id' => Auth::id(),
+                    'transaction_date' => now(),
+                    'total_item' => $totalAmount,
+                ]);
+
+                TransactionDetail::create([
+                    'transaction_id' => $transaction->id,
+                    'product_size_id' => $item->product_id,
+                    'quantity' => $item->quantity,
+                    'size' => $item->size,
+                ]);
+
+                Cart::truncate();
+
+                return redirect('/')->with('success', 'Checkout successful!');
             }
-
-            // Clear the cart
-            session()->forget('cart');
-
-            return redirect('/')->with('success', 'Checkout successful!');
+            return redirect()->route('cart.index')->with('error', 'Your cart is empty.');
         }
-
-        return redirect()->route('cart.index')->with('error', 'Your cart is empty.');
     }
 }

@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Cart extends Model
 {
-    protected $fillable = ['quantity', 'product_id'];
-
     use HasFactory;
+
+    protected $fillable = ['product_id', 'size', 'quantity'];
 
     /**
      * Get the user that owns the Cart
@@ -19,6 +19,11 @@ class Cart extends Model
      */
     public function productsize(): BelongsTo
     {
-        return $this->belongsTo(ProductSize::class, 'product_id');
+        return $this->belongsTo(ProductSize::class);
+    }
+
+    public function product(): BelongsTo
+    {
+        return $this->belongsTo(Product::class);
     }
 }

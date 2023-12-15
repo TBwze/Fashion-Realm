@@ -26,7 +26,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        if(Auth::check() == true && Auth::user()->role == 'admin'){
+        if (Auth::check() == true && Auth::user()->role == 'admin') {
             return view('add-product');
         }
         return redirect('');
@@ -53,7 +53,7 @@ class ProductController extends Controller
 
         DB::table('products')->insert([
             'name' => $productName,
-            'description' =>$productDescription,
+            'description' => $productDescription,
             'image_front' => "img/" . $productImage->getClientOriginalName(),
             'price' => $productPrice,
             'category' => $productCategory,
@@ -76,7 +76,7 @@ class ProductController extends Controller
      */
     public function edit(int $id)
     {
-        if(Auth::check() == true && Auth::user()->role == 'admin'){
+        if (Auth::check() == true && Auth::user()->role == 'admin') {
             return view('edit')->with('product', Product::find($id));
         }
         return redirect('');
@@ -101,19 +101,19 @@ class ProductController extends Controller
         $productPrice = $request->price;
         $productCategory = $request->category;
         $product = Product::find($id);
-        if($productImageFront == null){
+        if ($productImageFront == null) {
             $productImageFront = $product->image_front;
-        }else{
-            $productImageFront=$productImageFront->getClientOriginalName();
+        } else {
+            $productImageFront = 'img/' . $productImageFront->getClientOriginalName();
         }
 
         DB::table('products')->where('id', $product->id)->update([
             'name' => $productName,
             'description' => $productDescription,
-            'image_front' => 'img/' . $productImageFront,
+            'image_front' => $productImageFront,
             'image_back' => NULL,
             'price' => $productPrice,
-            'category' =>$productCategory,
+            'category' => $productCategory,
         ]);
 
         return redirect()->back();

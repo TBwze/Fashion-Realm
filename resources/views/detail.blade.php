@@ -26,29 +26,35 @@
                                 autocomplete="off" checked>
                             <label class="btn btn_size" for="option1">S</label>
 
-                </div>
-                <div class="col">
-                    {{-- <button type="button" class="btn btn_size">M</button> --}}
-                    <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off">
-                    <label class="btn btn_size" for="option2">M</label>
-                </div>
-                <div class="col">
-                    {{-- <button type="button" class="btn btn_size">L</button> --}}
-                    <input type="radio" class="btn-check" name="options" id="option3" autocomplete="off">
-                    <label class="btn btn_size" for="option3">L</label>
-                </div>
-                <div class="col">
-                    {{-- <button type="button" class="btn btn_size">XL</button> --}}
-                    <input type="radio" class="btn-check" name="options" id="option4" autocomplete="off">
-                    <label class="btn btn_size" for="option4">XL</label>
-                </div>
-            </div>
+                        </div>
+                        <div class="col">
+                            {{-- <button type="button" class="btn btn_size">M</button> --}}
+                            <input type="radio" class="btn-check" name="sizes" value="medium" id="option2"
+                                autocomplete="off">
+                            <label class="btn btn_size" for="option2">M</label>
+                        </div>
+                        <div class="col">
+                            {{-- <button type="button" class="btn btn_size">L</button> --}}
+                            <input type="radio" class="btn-check" name="sizes" value="large" id="option3"
+                                autocomplete="off">
+                            <label class="btn btn_size" for="option3">L</label>
+                        </div>
+                    </div>
+                    <div class="d-grid">
+                        @if (Auth::check())
+                            <button type="submit" class="btn btn_cart">
+                                Add to Cart
+                            </button>
+                        @else
+                            <b>
+                                <p>Sign in to start shopping</p>
+                            </b>
+                        @endif
+                    </div>
+                </form>
 
-            <div class="d-grid">
-                <button type="button" name="" id="" class="btn btn_cart">
-                    Add to Cart
-                </button>
-            </div>
+                {{--  --}}
+
 
                 <div class="row text_apaini text-nowrap justify-content-center text-center">
                     <div class="col-6">

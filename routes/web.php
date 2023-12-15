@@ -26,12 +26,12 @@ Route::get('/signup', [ViewController::class, 'showSignUp']);
 Route::post('/signup', [AuthorizationController::class, 'SignUp']);
 
 Route::get('/catalog/{category}', [ProductController::class, 'index']);
-Route::get('/manage-product', [ViewController::class,"showManageProduct"]);
+Route::get('/manage-product', [ViewController::class, "showManageProduct"]);
 
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::post('/cart', [CartController::class, 'store'])->name('cart.store');
-Route::patch('/cart/{index}', [CartController::class, 'update'])->name('cart.update');
-Route::delete('/cart/{index}', [CartController::class, 'destroy'])->name('cart.destroy');
+Route::patch('/cart/{id}', [CartController::class, 'update'])->name('cart.update');
+Route::delete('/cart/{id}', [CartController::class, 'destroy'])->name('cart.destroy');
 Route::get('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
 
 Route::post('/transactions', [TransactionController::class, 'store'])->name('transactions.store');

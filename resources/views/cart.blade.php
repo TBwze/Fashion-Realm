@@ -6,7 +6,7 @@
 
     <div class="container mt-5">
         <h1>Your Shopping Cart</h1>
-        @if (count($products) > 0)
+        @if ($cartItems->isNotEmpty())
             <table class="table mt-4">
                 <thead>
                     <tr>
@@ -23,17 +23,17 @@
                     @php
                         $total = 0;
                     @endphp
-                    @foreach ($products as $index => $item)
+                    @foreach ($cartItems as $item)
                         @php
-                            $subtotal = $item['quantity'] * $item['price'];
+                            $subtotal = $item->quantity * $item->product->price;
                             $total += $subtotal;
                         @endphp
                         <tr>
-                            <td>{{ $index + 1 }}</td>
-                            <td>{{ $item['name'] }}</td>
-                            <td>{{ $item['size'] }}</td>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $item->product->name }}</td>
+                            <td>{{ $item->size }}</td>
                             <td>
-                                <form action="{{ route('cart.update', $index) }}" method="POST">
+                                <form action="{{ route('cart.update', ['id' => $item->id]) }}" method="POST">
                                     @csrf
                                     @method('PATCH')
                                     <input type="number" name="quantity" value="{{ $item['quantity'] }}" min="1"
@@ -41,10 +41,10 @@
                                     <button type="submit" class="btn btn-primary">Update</button>
                                 </form>
                             </td>
-                            <td>Rp {{ $item['price'] }},00</td>
+                            <td>Rp {{ $item->product->price }},00</td>
                             <td>Rp {{ $subtotal }},00</td>
                             <td>
-                                <form action="{{ route('cart.destroy', $index) }}" method="POST">
+                                <form action="{{ route('cart.destroy', ['id' => $item->id]) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger">Remove</button>
