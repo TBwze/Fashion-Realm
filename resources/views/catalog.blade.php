@@ -28,10 +28,10 @@
 
         <div class="row">
             @foreach ($products as $product)
-                <div class="col-md-4">
+                <div class="col-md-2">
                     <div class="card mb-4 box-shadow">
-                        <a href="{{ url('product/' . $product->id) }}">
-                            <img class="card-img-top"
+                        <a href="{{ url('product/' . $product->id) }}" class="text-decoration-none text-black ">
+                            <img class="card-img-top object-fit-cover border-bottom border-black bg-dark-subtle"
                                 data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
                                 style="height: 225px; width: 100%; display: block;" src="{{ asset($product->image_front) }}"
                                 data-holder-rendered="true">

@@ -4,16 +4,17 @@
 
 @section('content')
     <link rel="stylesheet" href="css/cart.css">
-    <div class="container main">
+    <div class="container-fluid main">
         <div class="container">
             <h1 class="text-dark">Your Shopping Cart</h1>
-            <div class="row" style="height: auto;">
+            <div class="row " style="height: auto;">
                 @if ($cartItems->isNotEmpty())
                     <div class="table-responsive">
                         <table class="table mt-6">
                             <thead>
                                 <tr>
                                     <th>Product</th>
+                                    <th>Image</th>
                                     <th>Name</th>
                                     <th>Size</th>
                                     <th>Quantity</th>
@@ -33,6 +34,7 @@
                                     @endphp
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
+                                        <td><img src="{{ asset( $item->product->image_front ) }}" style="height:3rem"/></td>
                                         <td>{{ $item->product->name }}</td>
                                         <td>{{ $item->size }}</td>
                                         <td>

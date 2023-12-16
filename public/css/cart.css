@@ -2,6 +2,7 @@
 
 * {
     font-family: 'Poppins', sans-serif;
+    
 }
 
 
@@ -9,15 +10,17 @@
     display: flex;
     justify-content: top;
     align-items: top;
+    background-color: #ececec;
     min-height: 100vh;
     padding: 10vh;
 }
 
 .row {
-    width: 100vh;
+    width: 100%;
     height: auto;
     border-radius: 1vh;
-    background: #727A90;
+    background: white;
     padding: 5vh;
+    margin: 0 10% 0 0;
     box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.2);
 }

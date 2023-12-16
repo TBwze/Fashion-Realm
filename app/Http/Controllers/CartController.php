@@ -154,9 +154,11 @@ class CartController extends Controller
 
                 Cart::truncate();
 
-                return redirect('/')->with('success', 'Checkout successful!');
+                
             }
-            return redirect()->route('cart.index')->with('error', 'Your cart is empty.');
+            return redirect('/')->with('success', 'Checkout successful!');
+            
         }
+        return redirect()->route('cart.index')->with('error', 'Your cart is empty.');
     }
 }
